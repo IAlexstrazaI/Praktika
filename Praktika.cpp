@@ -15,3 +15,28 @@ void input_matr(int a[N][N]) {
 		}
 	}
 }
+void input_matr2(int a[N][N]) {
+	int i, j;
+	FILE* fp;
+	fp = fopen("C:\test\Lab7.txt", "r");
+	if (fp) {
+		for (i = 0; i < N; i++) {
+			for (j = 0; j < N; j++) {
+				fscanf(fp, "%d", &a[i][j]);
+			}
+		}
+		fclose(fp);
+	}
+}
+int minMassiva(int x[N], int const arraySize, int min, int i)
+{
+	if (x[i] < min)
+		min = x[i];
+	i++;
+	if (i < N) {
+		minMassiva(x, arraySize, min, i);
+	}
+	else {
+		return min;
+	}
+}
